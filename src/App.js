@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Header from './components/Header/Header';
+import SearchContainer from './pages/Search/SearchContainer';
+import Index from './pages/Index/Index';
+import {Routes, Route} from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faAngleDown, faMagnifyingGlass, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { funOrState, funOrValue, funOpState, funOpValue } from './reduxjs-toolkit/searchSlice.js';
+
+library.add(faAngleDown, faMagnifyingGlass, faCheck);
 
 function App() {
+
+
+console.log("app")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Header/>
+      <Routes>
+      	<Route path='/' element={<Index/>}/>
+        <Route path='/search' element={<SearchContainer/>}/>
+      </Routes>
     </div>
   );
 }
