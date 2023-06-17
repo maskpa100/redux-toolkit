@@ -1,4 +1,4 @@
-import {funOrState, funOrValue, funOpState, funOpValue, getImages} from "../../reduxjs-toolkit/searchSlice.js";
+import {funOrState, funOrValue, funOpState, funOpValue, getImages, setWord} from "../../reduxjs-toolkit/searchSlice.js";
 import React from 'react';
 import Search from "./Search";
 import {connect} from "react-redux";
@@ -29,8 +29,8 @@ class SearchContainer extends React.Component {
             funOrValue={this.props.funOrValue}
             funOpState={this.props.funOpState}
             funOpValue={this.props.funOpValue}
+            setWord={this.props.setWord}
              />
-            }
         </>
     }
 }
@@ -41,4 +41,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {funOrState, funOrValue, funOpState, funOpValue, getImages})(SearchContainer);
+export default connect(mapStateToProps, {funOrState, funOrValue, funOpState, funOpValue, getImages, setWord})(SearchContainer);

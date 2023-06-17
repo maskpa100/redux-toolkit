@@ -1,22 +1,28 @@
 
 import s from './Search.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
 const Search = (props) => {
-    const {funOrState, funOrValue, funOpState, funOpValue, setImages, totalCount} = props;
-    const { orState, orValue, opState, opValue, images } = props.searchReducer;
+    const {funOrState, funOrValue, funOpState, funOpValue, setImages} = props;
+    const { orState, orValue, opState, opValue, images, totalCount } = props.searchReducer;
     const IconCheck = <FontAwesomeIcon className={s.iconCheck} icon="fa-solid fa-check" />;
 
 
     return (
         <div>
             <div className={s.word}>
-                <input id="words_search" type="text" placeholder="Поиск.." name="search" />
-                <button id="words_search_button" type="submit">
-                    <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-                </button>
+
+                <Formik initialValues={{ text: '' }} onSubmit={(values) => {props.setWord(values)}}>
+                  <Form className={s.form}>
+                    <Field className={s.text} type="text" name="text" />
+                    <ErrorMessage name="text" component="div" className={s.error_message}/>
+                    <button className={s.button} type="submit">
+                        <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                    </button>
+                  </Form>
+                </Formik>
             </div>
             <div className={s.item}>
                 <div className={s.orientations}>

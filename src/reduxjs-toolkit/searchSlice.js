@@ -19,7 +19,8 @@ const searchSlice = createSlice({
     funOrState: (state, action) => { state.orState = !action.payload; },
     funOpState: (state, action) => { state.opState = !state.opState; },
     funOpValue: (state, action) => { state.opValue = action.payload ; state.opState = !state.opState; },
-    setImages: (state, action) => { state.images = action.payload ; },
+    setImages: (state, action) => { state.images = action.payload.images ; state.totalCount = action.payload.totalCount },
+    setWord: (state, action) => { state.words = action.payload.text ; },
   },
 });
 
@@ -27,10 +28,10 @@ export const getImages = (page,count,words,format,orientations) => {
     return (dispatch) => {
         searchAPI.getImages(page,count,words,format,orientations)
         .then(data => {
-            dispatch(setImages(data.images));
+            dispatch(setImages(data));
         });
     }
 }
 
-export const {funOrState, funOrValue, funOpState, funOpValue, setImages} = searchSlice.actions;
+export const {funOrState, funOrValue, funOpState, funOpValue, setImages, setWord} = searchSlice.actions;
 export default searchSlice.reducer;

@@ -4,11 +4,13 @@
     padding-top: 30px;
     display:flex;
 }
-.word input{
-	padding: 10px;
+.word .form{
+    display: flex;
+    width: 100%;
+}
+.word .text{
     font-size: 17px;
     border: 1px solid grey;
-    float: left;
     width: 80%;
     background: #f1f1f1;
     border-radius: 15px 0 0 15px;
@@ -111,10 +113,11 @@
     height: 180px;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .search_image_gallery li img {
     object-fit: cover;
-    width: 100%;
     height: 100%;
     vertical-align: middle;
     border-radius: 5px;

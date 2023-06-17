@@ -20,3 +20,25 @@ export const searchAPI = {
             });
     }
 }
+
+
+export const authAPI = {
+    login(values) {
+        return AuthAPI.post('login.php', values)
+            .then(response => {
+                return response.data;
+
+            });
+    },
+    getAuth(jwt) {
+        return AuthAPI.post('validate_token.php', {
+              "jwt" : jwt
+            })
+            .then(response => {
+                
+                return response.data;
+                
+                
+            });
+    }
+}
