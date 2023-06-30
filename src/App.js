@@ -6,7 +6,6 @@ import Index from './pages/Index/Index';
 import {Routes, Route, redirect} from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAngleDown, faMagnifyingGlass, faCheck } from "@fortawesome/free-solid-svg-icons";
-import { funOrState, funOrValue, funOpState, funOpValue } from './reduxjs-toolkit/searchSlice.js';
 import { useCookies } from 'react-cookie';
 import { useSelector } from 'react-redux';
 
